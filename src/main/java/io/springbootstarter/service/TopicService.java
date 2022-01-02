@@ -36,7 +36,11 @@ public class TopicService{
     public void updateTopic(TopicRequest topicRequest, String id) {
         List<Topic> collect = topicList.stream().filter(topic -> {
             if (topic.getId().equalsIgnoreCase(id)) {
-                topicList.set(topicList.indexOf(0), topic);
+                Topic topic1 = new Topic();
+                topic1.setId(topicRequest.getId());
+                topic1.setName(topicRequest.getName());
+                topic1.setDescription(topicRequest.getDescription());
+                topicList.add(topic1);
             }
             return true;
         }).collect(Collectors.toList());
