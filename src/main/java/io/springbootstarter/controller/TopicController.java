@@ -32,7 +32,7 @@ public class TopicController {
     @ApiResponse(responseCode = "200", description = "Get All Topics",
     content = @Content(array = @ArraySchema(arraySchema = @Schema(implementation = TopicResponse.class))))
     public Response<List<TopicResponse>> getAllTopics(){
-        List<Topic> allTopics = topicService.getAllTopics();
+        List<TopicResponse> allTopics = topicService.getAllTopics();
         Response response = new Response();
         response.setData(allTopics);
         return response;
@@ -42,7 +42,7 @@ public class TopicController {
     @ApiResponse(responseCode = "200", description = "Get topic by Id",
     content = @Content(array = @ArraySchema(schema = @Schema(implementation = TopicResponse.class))))
     public Response<TopicResponse> getTopicById(@PathVariable String id){
-        Topic topicById = topicService.getTopicById(id);
+        TopicResponse topicById = topicService.getTopicById(id);
         Response response = new Response();
         response.setData(topicById);
         return response;
